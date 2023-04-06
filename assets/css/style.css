@@ -3278,7 +3278,7 @@ ol {
   display: inline-grid;
   place-items: center;
   border-radius: 2px;
-  background-color: #4cedaa;
+  background-color: #68f37f;
   color: #fff;
   z-index: 1;
 }
@@ -5046,12 +5046,35 @@ section.mainPage .container{
   position: relative;
 }
 section.mainPage .logo_big {
-  position: absolute;
-  top: 55%;
-  left: 5%;
+  position: fixed;
   width: 100%;
   z-index: 999;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  
 }
+.blur {
+  animation: titleBlur 1.5s ease 1;
+  /* -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px); */
+}
+
+@keyframes titleBlur {
+  from {
+    filter: blur(0);
+  }
+  to {
+    filter: blur(10px);
+  }
+}
+
+
 section.mainPage .logo_big img {
   width: 23rem;
 }
@@ -5226,21 +5249,35 @@ section.subPage.lastPage .innerWrap .contWrap {
   border-radius: 1rem;
 }
 
-
-section.mainPage .imageWrap .parallax_image:nth-child(2){
-  filter: blur(15px);
+/* 배경 */
+section.mainPage .imageWrap .parallax_image:nth-child(1){
   animation: backdrop-filter-animation 15s ease 1 both;
 }
 
 @keyframes backdrop-filter-animation {
   from {
-    filter: blur(15px) brightness(130%);
+    filter: blur(20px);
   }
   to {
-    filter: blur(0px) brightness(100%);
+    filter: blur(0px);
   }
 }
 
+/* 얼음 */
+section.mainPage .imageWrap .parallax_image:nth-child(2){
+  animation: backdrop-filter-animation 15s ease-in-out 1 both;
+}
+
+@keyframes backdrop-filter-animation {
+  0% {
+    filter: blur(15px) saturate(60%);
+  }
+  to {
+    filter: blur(0px) saturate(100%);
+  }
+}
+
+/* 화산 */
 section.mainPage .imageWrap .parallax_image:nth-child(3){
   filter: blur(10px);
   animation: backdrop-filter-animation 10s ease 1 both;
@@ -5248,13 +5285,14 @@ section.mainPage .imageWrap .parallax_image:nth-child(3){
 
 @keyframes backdrop-filter-animation {
   from {
-    filter: blur(10px) brightness(130%);
+    filter: blur(10px) brightness(130%) saturate(60%);
   }
   to {
-    filter: blur(0px) brightness(100%);
+    filter: blur(0px) brightness(100%) saturate(100%);
   }
 }
 
+/* 정글 */
 section.mainPage .imageWrap .parallax_image:nth-child(4){
   filter: blur(5px);
   animation: backdrop-filter-animation 5s ease 1 both;
@@ -5262,13 +5300,14 @@ section.mainPage .imageWrap .parallax_image:nth-child(4){
 
 @keyframes backdrop-filter-animation {
   from {
-    filter: blur(5px) brightness(130%);
+    filter: blur(5px) brightness(130%) saturate(50%);
   }
   to {
-    filter: blur(0px) brightness(100%);
+    filter: blur(0px) brightness(100%) saturate(80%);
   }
 }
 
+/* 성 */
 section.mainPage .imageWrap .parallax_image:nth-child(5){
   filter: blur(3px);
   animation: backdrop-filter-animation 3s ease 1 both;
@@ -5276,10 +5315,10 @@ section.mainPage .imageWrap .parallax_image:nth-child(5){
 
 @keyframes backdrop-filter-animation {
   from {
-    filter: blur(3px) brightness(130%);
+    filter: blur(3px) brightness(130%) saturate(50%);
   }
   to {
-    filter: blur(0px) brightness(100%);
+    filter: blur(0px) brightness(100%) saturate(100%);
   }
 }
 
